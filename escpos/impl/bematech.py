@@ -105,13 +105,11 @@ class _ESCBematech(_CommandSet):
     def _barcode_render(self, command):
         self._impl.device.write(command)
         time.sleep(0.25)
-        return self._impl.device.read()
 
 
     def code128(self, data, **kwargs):
         self._barcode_configure(**kwargs)
-        return self._barcode_render(
-                '\x1D\x6B\x49{}{}'.format(chr(len(data)), data))
+        self._barcode_render('\x1D\x6B\x49{}{}'.format(chr(len(data)), data))
 
 
     def qrcode(self, data, **kwargs):
@@ -150,8 +148,6 @@ class _ESCBematech(_CommandSet):
 
         self._impl.device.write(command)
         time.sleep(1) # sleeps one second for qrcode to be printed
-        response = self._impl.device.read()
-        return response
 
 
     def kick_drawer(self, port=0, **kwargs):

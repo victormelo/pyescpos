@@ -98,8 +98,6 @@ class DarumaGeneric(GenericESCPOS):
 
         self.device.write(command)
         time.sleep(0.25)
-        response = self.device.read()
-        return response
 
 
     def _ean13_impl(self, data, **kwargs):
@@ -140,8 +138,6 @@ class DarumaGeneric(GenericESCPOS):
 
         self.device.write(command)
         time.sleep(0.5)
-        response = self.device.read()
-        return response
 
 
     def _kick_drawer_impl(self, port=0, **kwargs):

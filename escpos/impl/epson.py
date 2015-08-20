@@ -289,7 +289,6 @@ class TMT20(GenericESCPOS):
             self.device.write(cmd)
 
         time.sleep(0.25) # wait for barcode to be printed
-        return self.device.read()
 
 
     def _qrcode_error_correction_value(self, **kwargs):
@@ -364,5 +363,4 @@ class TMT20(GenericESCPOS):
             self.device.write(''.join(cmd))
 
         time.sleep(1) # sleeps one second for qrcode to be printed
-        return self.device.read()
 
