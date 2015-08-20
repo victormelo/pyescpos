@@ -82,10 +82,28 @@ Serial communications support requires `PySerial`_ version 2.7 or later.
     printer.text('Hello World!')
 
 
+Network TCP/IP Example
+----------------------
+
+If your printer has an ETH or wireless interface you can connect to a printer
+over the network through TCP/IP. Just a reminder: if your printer has more than
+one interface (eg. USB and ethernet), you may have to configure which interface
+should be active.
+
+.. sourcecode:: python
+
+    from escpos.network import NetworkConnection
+    from escpos.impl.epson import TMT20
+
+    printer = TMT20(NetworkConnection.create('192.168.0.205:9100'))
+    printer.init()
+    printer.text('Hello World!')
+
+
 USB Example
 -----------
 
-USB support requires `PyUSB`_.
+USB support requires `PyUSB`_ (*not yet implemented*).
 
 .. sourcecode:: python
 
